@@ -4,20 +4,18 @@ import {List, InputItem,Radio, WingBlank, WhiteSpace, Button} from 'antd-mobile'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import {regisger} from '../../redux/user.redux'
-import Form from'../../component/form/form'
-
+import imoocForm from '../../component/imooc-form/imooc-form'
 @connect(
 	state=>state.user,
 	{regisger}
 )
-@Form
+@imoocForm
 class Register extends React.Component{
 	constructor(props) {
 		super(props)
 		this.handleRegister = this.handleRegister.bind(this)
 	}
 	componentDidMount(){
-		// 将type默认值设置为genius
 		this.props.handleChange('type','genius')
 	}
 	handleRegister(){
@@ -53,7 +51,7 @@ class Register extends React.Component{
 					</RadioItem>
 					<RadioItem
 						checked={this.props.state.type=='boss'}
-						onChange={()=>this.handleChange('type','boss')}
+						onChange={()=>this.props.handleChange('type','boss')}
 					>
 						BOSS
 					</RadioItem>
