@@ -39,6 +39,6 @@ ReactDom.render(
 
 			</div>
 		</BrowserRouter>
-	</Provider>),
+</Provider>),
 	document.getElementById('root')
 )

@@ -1,8 +1,8 @@
 
 import React from 'react'
-import {connect} from 'react-redux' 
+import {connect} from 'react-redux'
 import {List,Badge} from 'antd-mobile'
- 
+
 @connect(
 	state=>state
 )
@@ -23,22 +23,17 @@ class Msg extends React.Component{
 			msgGroup[v.chatid] = msgGroup[v.chatid] || []
 			msgGroup[v.chatid].push(v)
 		})
-		
+
 		const chatList = Object.values(msgGroup).sort((a,b)=>{
 			const a_last = this.getLast(a).create_time
 			const b_last = this.getLast(b).create_time
 			return b_last - a_last
 		})
 
-		// console.log([3,1,2,6,5].sort(function(a,b){
-		// 	return b-a
-		// }))
-		//  return 得到的是正数就排列,负数就不排列
-		// console.log(Object.values({name:'imooc',age:18}))
 		// 按照聊天用户分组，根据chatid
 		return (
 			<div>
-				
+
 					{chatList.map(v=>{
 						console.log(v)
 						const lastItem = this.getLast(v)
@@ -62,13 +57,13 @@ class Msg extends React.Component{
 								>
 									{lastItem.content}
 									<Brief>{userinfo[targetId].name}</Brief>
-																
+
 								</Item>
 							</List>
 						)
 					})}
 
-				
+
 			</div>
 		)
 	}

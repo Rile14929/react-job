@@ -18,12 +18,12 @@ class Chat extends React.Component{
 	componentDidMount(){
 		if (!this.props.chat.chatmsg.length) {
 			this.props.getMsgList()
-			this.props.recvMsg()	
+			this.props.recvMsg()
 		}
 	}
 	// 退出路由触发
 	componentWillUnmount(){
-		
+
 		const to = this.props.match.params.user
 		this.props.readMsg(to)
     }
@@ -71,7 +71,7 @@ class Chat extends React.Component{
 					{users[userid].name}
 				</NavBar>
 
-				
+
 				{chatmsgs.map(v=>{
 					const avatar = require(`../img/${users[v.from].avatar}.png`)
 					return v.from==userid?(
@@ -80,7 +80,7 @@ class Chat extends React.Component{
 								thumb={avatar}
 							>{v.content}</Item>
 						</List>
-					
+
 					):(
 						<List key={v._id}>
 							<Item
@@ -89,10 +89,10 @@ class Chat extends React.Component{
 							 	>{v.content}</Item>
 						</List>
 
-					)			
+					)
 				})}
 				<div className="stick-footer">
-					
+
 					<List>
 						<InputItem
 							placeholder='请输入'
@@ -118,7 +118,7 @@ class Chat extends React.Component{
 						></InputItem>
 					</List>
 
-					{this.state.showEmoji?<Grid 
+					{this.state.showEmoji?<Grid
 						data={emoji}
 						columnNum={9}
 						carouselMaxRow={4}
@@ -127,10 +127,8 @@ class Chat extends React.Component{
 							this.setState({
 								text:this.state.text+el.text
 							})
-							
 						}}
 					/>:null}
-					
 				</div>
 			</div>
 		)

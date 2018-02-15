@@ -33,7 +33,6 @@ Router.get('/getmsglist',function(req,res){
 
 	})
 	// {'$or':[{from:user,to:user}]}
-
 })
 Router.post('/readmsg', function(req, res){
 	const userid = req.cookies.userid
